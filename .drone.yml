@@ -41,7 +41,7 @@ steps:
   - unzip -d /dist/v2milk/APP/extra/v2ray-core *.zip
 # 构建安装包
 - name: 构建安装包
-  image: node:16.17-alpine3.15
+  image: node:16
   volumes:
   - name: cache
     path: /dist
