@@ -37,7 +37,7 @@ steps:
   - apk update
   - apk add git unzip bash wget
   - cd /dist/download
-  - wget https://github.com/v2ray/v2ray-core/releases/download/v4.28.2/v2ray-windows-64.zip
+  - wget https://github.com/v2ray/v2ray-core/releases/download/v4.27.5/v2ray-windows-64.zip
   - unzip *.zip
   - mv /dist/download/v2ray-windows-64/geoip* /dist/v2milk/APP/extra/v2ray-core/Windows
   - mv /dist/download/v2ray-windows-64/geosite.dat /dist/v2milk/APP/extra/v2ray-core/Windows
