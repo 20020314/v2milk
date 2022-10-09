@@ -52,3 +52,7 @@ steps:
   commands:
   - cd /dist/V2Milk/APP
   - npm run dist:win64
+# mv
+volumes:
+- name: cache
+  temp: {}
