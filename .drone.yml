@@ -41,7 +41,7 @@ steps:
   - mv /dist/download/So/ /dist/v2milk/APP/extra/v2ray-core/Windows
 # 构建安装包
 - name: 构建安装包
-  image: node:14
+  image: node:12
   volumes:
   - name: cache
     path: /dist
