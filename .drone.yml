@@ -27,7 +27,7 @@ steps:
   - cd /dist/V2Milk
   - cd APP
   - npm install
-  - npm install -g electron-- name: 拉取代码
+  - npm install -g electron
 # v2ray-core
 - name: 更新v2ray-core
   image: alpine
