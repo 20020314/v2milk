@@ -25,9 +25,7 @@ steps:
     path: /dist
   commands:
   - cd /dist/v2milk
-  - cd APP
-  - npm install
-  - npm install -g electron
+  - echo "安装完成"
 # v2ray-core
 - name: 更新v2ray-core
   image: alpine
@@ -49,6 +47,8 @@ steps:
     path: /dist
   commands:
   - cd /dist/v2milk/APP
+  - npm install
+  - npm install -g electron-builder
   - npm run dist:win64
 # mv
 volumes:
