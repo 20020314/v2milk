@@ -24,7 +24,7 @@ steps:
   - name: cache
     path: /dist
   commands:
-  - cd /dist/V2Milk
+  - cd /dist/v2milk
   - cd APP
   - npm install
   - npm install -g electron
@@ -42,7 +42,7 @@ steps:
   - wget https://github.com/v2ray/v2ray-core/releases/download/v4.28.2/v2ray-windows-64.zip
   - unzip v2ray*.zip
   - cd v2ray-windows-64
-  - mv ./* /dist /V2Milk/APP/extra/v2ray-core
+  - mv ./* /dist/v2milk/APP/extra/v2ray-core
 # 构建安装包
 - name: 构建安装包
   image: node:16.17-alpine3.15
@@ -50,7 +50,7 @@ steps:
   - name: cache
     path: /dist
   commands:
-  - cd /dist/V2Milk/APP
+  - cd /dist/v2milk/APP
   - npm run dist:win64
 # mv
 volumes:
