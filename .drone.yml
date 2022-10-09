@@ -1,0 +1,54 @@
+kind: pipeline
+type: docker
+name: Win-64🤡
+steps:
+node:
+  server: USA
+clone:
+  disable: true
+steps:
+- name: 拉取代码
+  image: alpine
+  volumes:
+  - name: cache
+    path: /dist
+  commands:
+  - apk update
+  - apk add git bash
+  - cd /dist
+  - git clone https://github.com/20020314/v2milk
+# 依赖
+- name: 安装依赖
+  image: node:16.17-alpine3.15
+  volumes:
+  - name: cache
+    path: /dist
+  commands:
+  - cd /dist/V2Milk
+  - cd APP
+  - npm install
+  - npm install -g electron-- name: 拉取代码
+# v2ray-core
+- name: 更新v2ray-core
+  image: alpine
+  volumes:
+  - name: cache
+    path: /dist
+  commands:
+  - apk update
+  - apt add git unzip bash wget
+  - mkdir download
+  - cd download
+  - wget https://github.com/v2ray/v2ray-core/releases/download/v4.28.2/v2ray-windows-64.zip
+  - unzip v2ray*.zip
+  - cd v2ray-windows-64
+  - mv ./* /dist /V2Milk/APP/extra/v2ray-core
+# 构建安装包
+- name: 构建安装包
+  image: node:16.17-alpine3.15
+  volumes:
+  - name: cache
+    path: /dist
+  commands:
+  - cd /dist/V2Milk/APP
+  - npm run dist:win64
