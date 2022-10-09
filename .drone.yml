@@ -18,15 +18,19 @@ steps:
   - cd /dist
   - git clone https://github.com/20020314/v2milk
 # 依赖
-- name: 创建目录
-  image: node:16.17-alpine3.15
+- name: 设置程序目录
+  image: alpine
   volumes:
   - name: cache
     path: /dist
   commands:
-  - cd /dist/v2milk
+  - apk update
+  - apk add wget unzip
   - mkdir /dist/download
   - mkdir -p /dist/v2milk/APP/extra/v2ray-core/Windows
+  - mkdir -p /dist/v2milk/APP/extra/v2ray-core/Linux
+  - wget https://github.com/v2fly/v2ray-core/releases/download/v4.31.0/v2ray-linux-64.zip
+  - unzip -d /dist/v2milk/APP/extra/v2ray-core/Linux *Linux*.zip
 # v2ray-core
 - name: 更新v2ray-core
   image: alpine
@@ -38,7 +42,7 @@ steps:
   - apk add unzip wget
   - cd /dist/download
   - wget https://github.com/v2fly/v2ray-core/releases/download/v4.31.0/v2ray-windows-64.zip
-  - unzip -d /dist/v2milk/APP/extra/v2ray-core/Windows *.zip
+  - unzip -d /dist/v2milk/APP/extra/v2ray-core/Windows *windows.zip
 # 构建安装包
 - name: 构建安装包
   image: node:12
