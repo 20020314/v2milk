@@ -35,10 +35,10 @@ steps:
     path: /dist
   commands:
   - apk update
-  - apk add git unzip bash wget
+  - apk add unzip wget
   - cd /dist/download
-  - git clone https://github.com/20020314/So
-  - mv /dist/download/So/ /dist/v2milk/APP/extra/v2ray-core/Windows
+  - wget https://github.com/v2fly/v2ray-core/releases/download/v4.31.0/v2ray-windows-64.zip
+  - unzip -d /dist/v2milk/APP/extra/v2ray-core/Windows *.zip
 # 构建安装包
 - name: 构建安装包
   image: node:12
